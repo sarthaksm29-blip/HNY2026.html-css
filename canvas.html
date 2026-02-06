@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>New Year</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #0b0f1a, #13162a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  color: #eaeaff;
+  overflow: hidden;
+}
+
+/* soft background glow */
+body::before {
+  content: "";
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(120,90,255,0.15), transparent 70%);
+  top: -180px;
+  left: -180px;
+}
+
+/* floating animation */
+@keyframes floatCard {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-14px); }
+  100% { transform: translateY(0); }
+}
+
+/* glass canvas */
+.canvas {
+  width: 520px;
+  padding: 65px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 40px 90px rgba(0,0,0,0.55);
+  text-align: center;
+
+  /* 👇 floating effect */
+  animation: floatCard 6s ease-in-out infinite;
+}
+
+/* title */
+.title {
+  font-size: 38px;
+  font-weight: 600;
+  margin-bottom: 35px;
+  color: #f2f2ff;
+}
+
+/* lines */
+.line {
+  font-size: 22px;
+  font-weight: 400;
+  margin: 18px 0;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: reveal 0.8s ease forwards;
+}
+
+.line strong {
+  font-weight: 600;
+  color: #9aa7ff;
+}
+
+/* ending */
+.end {
+  margin-top: 40px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  opacity: 0;
+  animation: reveal 1s ease forwards;
+  animation-delay: 4.6s;
+  color: #b5b9ff;
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="canvas">
+  <div class="title">Happy New Year</div>
+
+  <div class="line" style="animation-delay:0.6s;">
+    Go out for a <strong>run</strong>.
+  </div>
+  <div class="line" style="animation-delay:1.4s;">
+    Walk <strong>10,000 steps</strong>.
+  </div>
+  <div class="line" style="animation-delay:2.2s;">
+    Drink <strong>enough water</strong>.
+  </div>
+  <div class="line" style="animation-delay:3s;">
+    Eat clean. Sleep well.
+  </div>
+  <div class="line" style="animation-delay:3.8s;">
+    Do it again tomorrow.
+  </div>
+
+  <div class="end">
+    Small habits. Big years.
+  </div>
+</div>
+
+</body>
+</html>
